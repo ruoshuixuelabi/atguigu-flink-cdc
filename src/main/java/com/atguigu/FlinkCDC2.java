@@ -19,12 +19,12 @@ public class FlinkCDC2 {
 //        env.setStateBackend(new FsStateBackend("hdfs://hadoop102:8020/cdc-test/ck"));
         //2.通过FlinkCDC构建SourceFunction
         DebeziumSourceFunction<String> sourceFunction = MySqlSource.<String>builder()
-                .hostname("192.168.10.100")
-                .port(3306)
+                .hostname("172.18.30.98")
+                .port(3305)
                 .username("root")
                 .password("123456")
-                .databaseList("db2020")
-                .tableList("db2020.articles")
+                .databaseList("tmp")
+                .tableList("tmp.tb_new_content")
                 .deserializer(new CustomerDeserializationSchema())
                 .startupOptions(StartupOptions.initial())
                 .build();
